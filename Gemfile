@@ -1,4 +1,15 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
+# Use dotenv
+gem 'nokogiri'
+gem 'dotenv'
+
+# Use knife-solo
+gem 'knife-solo'
+gem 'berkshelf'
+
+
+# Use serverspec
+gem 'serverspec'
+gem 'rake'
