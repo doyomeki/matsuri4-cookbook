@@ -7,6 +7,7 @@ gem 'dotenv'
 
 # Use knife-solo
 gem 'knife-solo'
+gem 'knife-zero'
 gem 'berkshelf'
 
 
