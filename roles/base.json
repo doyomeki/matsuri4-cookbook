@@ -2,7 +2,7 @@
   "name" : "base",
   "chef_tpe" : "role",
   "json_class" : "Chef::Role",
-  "default_attributes" : {],
+  "default_attributes" : {},
   "override_attributes" :{
     "timezone-ii" : {
       "tz" : "Asia/Tokyo"
@@ -11,7 +11,6 @@
   "run_list" : [
   "recipe[apt]",
   "recipe[timezone-ii]",
-  "recipe[my_locale]",
   "recipe[my_ntp]"
   ]
   }

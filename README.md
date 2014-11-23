@@ -49,7 +49,7 @@ Tips
 
 ```
   # Install Chef
-  $ knife solo prepare vagrant@webapp
+  $ bundle exec knife solo prepare vagrant@webapp
 
   # provisionning cookbook
   $ bundle exec knife solo cook webapp
@@ -71,7 +71,6 @@ Please fork.
  $ bundle install
  $ bundle exec berks
  $ bundle exec berks vendor cookbooks
- $ vagrant plugin install dotenv
  $ vagrant plugin install sahara
  $ vagrant plugin install vagrant-omnibus
  $ vagrant plugin install vagrant-berkshelf
