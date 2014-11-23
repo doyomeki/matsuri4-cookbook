@@ -18,6 +18,7 @@ GRAPH
   locale (1.0.2)
   my_locales (0.1.0)
   my_nginx (0.1.0)
+    nginx (>= 0.0.0)
   my_ntp (0.1.0)
   nginx (2.7.4)
     apt (~> 2.2)
