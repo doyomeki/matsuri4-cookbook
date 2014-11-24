@@ -1,0 +1,12 @@
+server {
+  server_name <%= node['my_nginx']['servername'] %>; # change to match your URL
+  root <%= node['my_nginx']['default_root'] %>/<%= node['my_nginx']['app'] %>/;
+
+  access_log <%= node['nginx']['log_dir'] %>/<%= node['my_nginx']['app'] %>.access.log;
+  error_log <%= node['nginx']['log_dir'] %>/<%= node['my_nginx']['app'] %>.error.log info;
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+
+}
+

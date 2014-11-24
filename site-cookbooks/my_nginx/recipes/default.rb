@@ -16,3 +16,15 @@ service "nginx" do
   action [ :enable, :start ]
   supports :status => true, :restart => true, :reload => true
 end
+
+template 'nginx.conf' do
+  path   "#{node['nginx']['dir']}/nginx.conf"
+  source 'nginx.conf.erb'
+  owner  'root'
+  group  'root'
+  mode   '0644'
+  notifies :reload, 'service[nginx]'
+end
+
+include_recipe 'nginx::commons_dir'
+include_recipe 'my_nginx::sites'
