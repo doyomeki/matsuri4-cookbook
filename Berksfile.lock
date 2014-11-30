@@ -1,13 +1,14 @@
 DEPENDENCIES
   apt
-  locale
-  my_locales
-    path: site-cookbooks/my_locales
+  mackerel-agent (~> 1.0.0)
   my_nginx
     path: site-cookbooks/my_nginx
   my_ntp
     path: site-cookbooks/my_ntp
   nginx
+  td-agent
+    git: https://github.com/treasure-data/chef-td-agent.git
+    revision: eb60fb3272cab7a0c6e50e338d60d7f8b9d30e61
   timezone-ii
 
 GRAPH
@@ -15,8 +16,9 @@ GRAPH
   bluepill (2.3.1)
     rsyslog (>= 0.0.0)
   build-essential (2.1.3)
-  locale (1.0.2)
-  my_locales (0.1.0)
+  mackerel-agent (1.0.0)
+    apt (>= 0.0.0)
+    yum (< 4.0)
   my_nginx (0.1.0)
     nginx (>= 0.0.0)
   my_ntp (0.1.0)
@@ -33,6 +35,9 @@ GRAPH
     build-essential (>= 0.0.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
+  td-agent (0.0.1)
+    apt (>= 0.0.0)
+    yum (>= 0.0.0)
   timezone-ii (0.2.0)
   yum (3.4.1)
   yum-epel (0.5.2)
