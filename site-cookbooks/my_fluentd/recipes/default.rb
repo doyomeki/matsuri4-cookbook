@@ -55,12 +55,11 @@ execute "plugin install" do
   command "/usr/sbin/td-agent-gem install fluent-plugin-datacounter fluent-plugin-mackerel"
 end
 
-###TODO
-#template "/etc/td-agent/td-agent.conf" do
-#   mode "0644"
-#   source "td-agent.conf.erb"
-#   notifies :restart, 'service[td-agent]'
-#end
+template "/etc/td-agent/td-agent.conf" do
+   mode "0644"
+   source "td-agent.conf.erb"
+   notifies :restart, 'service[td-agent]'
+end
 
 service "td-agent" do
   action [ :enable, :start ]
