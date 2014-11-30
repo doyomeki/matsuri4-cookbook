@@ -1,14 +1,15 @@
 DEPENDENCIES
   apt
   mackerel-agent (~> 1.0.0)
+  my_fluentd
+    path: site-cookbooks/my_fluentd
+  my_mackerel-agent
+    path: site-cookbooks/my_mackerel-agent
   my_nginx
     path: site-cookbooks/my_nginx
   my_ntp
     path: site-cookbooks/my_ntp
   nginx
-  td-agent
-    git: https://github.com/treasure-data/chef-td-agent.git
-    revision: eb60fb3272cab7a0c6e50e338d60d7f8b9d30e61
   timezone-ii
 
 GRAPH
@@ -19,6 +20,11 @@ GRAPH
   mackerel-agent (1.0.0)
     apt (>= 0.0.0)
     yum (< 4.0)
+  my_fluentd (0.1.0)
+    apt (>= 0.0.0)
+    td-agent (>= 0.0.0)
+  my_mackerel-agent (0.1.0)
+    mackerel-agent (>= 0.0.0)
   my_nginx (0.1.0)
     nginx (>= 0.0.0)
   my_ntp (0.1.0)

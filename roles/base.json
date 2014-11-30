@@ -7,6 +7,8 @@
   "run_list" : [
   "recipe[apt]",
   "recipe[my_timezone]",
-  "recipe[my_ntp]"
+  "recipe[my_ntp]",
+  "recipe[my_fluentd]",
+  "recipe[my_mackerel-agent]"
   ]
   }

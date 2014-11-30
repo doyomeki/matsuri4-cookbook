@@ -1,5 +1,5 @@
-my_tg-agent Cookbook
-====================
+my_fluentd Cookbook
+===================
 TODO: Enter the cookbook description here.
 
 e.g.
@@ -11,14 +11,14 @@ TODO: List your cookbook requirements. Be sure to include any requirements this 
 
 e.g.
 #### packages
-- `toaster` - my_tg-agent needs toaster to brown your bagel.
+- `toaster` - my_fluentd needs toaster to brown your bagel.
 
 Attributes
 ----------
 TODO: List your cookbook attributes here.
 
 e.g.
-#### my_tg-agent::default
+#### my_fluentd::default
 <table>
   <tr>
     <th>Key</th>
@@ -27,7 +27,7 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['my_tg-agent']['bacon']</tt></td>
+    <td><tt>['my_fluentd']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -36,17 +36,17 @@ e.g.
 
 Usage
 -----
-#### my_tg-agent::default
+#### my_fluentd::default
 TODO: Write usage instructions for each cookbook.
 
 e.g.
-Just include `my_tg-agent` in your node's `run_list`:
+Just include `my_fluentd` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[my_tg-agent]"
+    "recipe[my_fluentd]"
   ]
 }
 ```
