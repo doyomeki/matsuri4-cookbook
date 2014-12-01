@@ -4,6 +4,8 @@
 # Bundler
 bin/*
 .bundle/*
-
 .kitchen/
+.default.rb
+.td-agent.conf.erb
 .kitchen.local.yml
+/cookbooks/

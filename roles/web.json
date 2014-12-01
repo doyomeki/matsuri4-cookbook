@@ -1,0 +1,15 @@
+{
+  "name" : "web",
+  "chef_type" : "role",
+  "json_class" : "Chef::Role",
+  "default_attributes" : {
+  },
+  "override_attributes": {
+    "my_nginx" : {
+      "servername" : "matsuri4.doyomeki.com"
+    }
+  },
+  "run_list" : [
+    "recipe[my_nginx]"
+  ]
+}
