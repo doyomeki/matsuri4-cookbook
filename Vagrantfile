@@ -5,10 +5,22 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "opscode-ubuntu-14.04"
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/vmware/opscode_ubuntu-14.04_chef-provisionerless.box"
+  # All Vagrant configuration is done here. The most common configuration
+  # options are documented and commented below. For a complete reference,
+  # please see the online documentation at vagrantup.com.
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  # Every Vagrant virtual environment requires a box to build off of.
+  config.vm.box = "ubuntu/trusty64"
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+   config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -82,7 +94,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.add_role "web"
   #
   #   # You may also specify custom JSON attributes:
-  #   chef.json = { mysql_password: "foo" }
+  #   chef.json = { :mysql_password => "foo" }
   # end
 
   # Enable provisioning with chef server, specifying the chef server URL,
