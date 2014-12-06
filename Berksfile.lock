@@ -9,7 +9,12 @@ DEPENDENCIES
     path: site-cookbooks/my_nginx
   my_ntp
     path: site-cookbooks/my_ntp
+  my_td-agent
+    path: site-cookbooks/my_td-agent
   nginx
+  td-agent
+    git: https://github.com/treasure-data/chef-td-agent
+    revision: cd15fe242bfaaa14bf11300486ca2342f6e9934c
   timezone-ii
 
 GRAPH
@@ -28,6 +33,10 @@ GRAPH
   my_nginx (0.1.0)
     nginx (>= 0.0.0)
   my_ntp (0.1.0)
+  my_td-agent (0.1.0)
+    apt (>= 0.0.0)
+    td-agent (>= 0.0.0)
+    yum (>= 0.0.0)
   nginx (2.7.4)
     apt (~> 2.2)
     bluepill (~> 2.3)
