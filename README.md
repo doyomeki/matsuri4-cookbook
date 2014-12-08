@@ -36,6 +36,26 @@ Install
 Usage
 -----
 
+### required
+
+* mackerel-agent.conf
+```
+$ cat site-cookbooks/my_mackerel-agent/recipes/default.rb
+node.default['mackerel-agent']['apikey'] = 'Your API KEY' # required
+node.default['mackerel-agent']['conf']['roles'] = ["My-Service:app", "Another-Service:db"] # optional
+```
+
+* td-agent.conf
+
+```
+$ cat site-cookbooks/my_td-agent/templates/default/td-agent.conf.erb
+  api_key ""  # your mackerel api key
+  service ""  # your mackerel service name
+
+```
+
+### vagrant
+
 ```
  $ vagrant up
  # Start provisioning, after install Chef
