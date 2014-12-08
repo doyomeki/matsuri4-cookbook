@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     provider.image = 'ubuntu-14-04-x64'
     provider.region = 'nyc3'
     provider.size = '512mb'
-    provider.ssh_key_name = "wercker chef"
+    provider.ssh_key_name = "wercker_for_matsuri4"
 
     override.omnibus.chef_version = "11.16.0"
     override.vm.provision "chef_solo" do |chef|
