@@ -1,0 +1,59 @@
+box: wercker/rvm
+no-response-timeout: 225
+# Build definition
+build:
+  # The steps that will be executed on build
+  # See the Ruby section on the wercker devcenter:
+  # http://devcenter.wercker.com/articles/languages/ruby.html
+  steps:
+  - rvm-use:
+    version: 2.1.5
+
+  # A step that executes `bundle install` command
+  - bundle-install
+  - script:
+    name: Make $HOME/.ssh directory
+    code: mkdir -p $HOME/.ssh
+  - create-file:
+    name: Put SSH public key
+    filename: $HOME/.ssh/id_rsa.pub
+    overwrite: true
+    hide-from-log: true
+    content: $DIGITALOCEAN_SSH_KEY_PUBLIC
+  - create-file:
+    name: Put SSH private key
+    filename: $HOME/.ssh/id_rsa
+    overwrite: true
+    hide-from-log: true
+    content: $DIGITALOCEAN_SSH_KEY_PRIVATE
+  - script:
+    name: Run chmod 0400 $HOME/.ssh/id_rsa
+    code: chmod 0400 $HOME/.ssh/id_rsa
+  - script:
+    name: Get Vagrant
+    code: wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3_x86_64.deb
+  - script:
+    name: Install Vagrant
+    code: sudo dpkg -i vagrant_1.6.3_x86_64.deb
+  - script:
+      name: Install Vagrant Plugin in vagrant-omnibus
+      code: vagrant plugin install vagrant-omnibus
+  - script:
+      name: Install Vagrant Plugin in vagrant-digitalocean
+      code: vagrant plugin install vagrant-digitalocean
+  - script:
+      name: Install Vagrant Plugin in dotenv
+      code: vagrant plugin install dotenv
+  - script:
+      neme: Download cookbooks
+      code: bundle exec berks vendor cookbooks
+  - script:
+      name: Run vagrant up
+      code: vagrant up --provider=digital_ocean
+  - script:
+      name: Run rake spec
+      code: bundle exec rake spec
+after-steps:
+  - script:
+      name: Run vagrant destroy
+      code: vagrant destroy --force
