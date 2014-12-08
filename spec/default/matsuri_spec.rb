@@ -21,7 +21,7 @@ end
 
 describe service('mackerel-agent') do
   it { should be_enabled }
-#  it { should be_running } Please apikey
+#  it { should be_running } Please setting apikey
 end
 
 describe file('/etc/mackerel-agent/mackerel-agent.conf') do
@@ -35,7 +35,7 @@ end
 
 describe service('td-agent') do
   it { should be_enabled }
-  it { should be_running }
+#  it { should be_running } Please setting apikey
 end
 
 describe file('/etc/td-agent') do

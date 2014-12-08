@@ -3,6 +3,8 @@ matsuri4-cookbook
 
 Cookbook for matsuri4
 
+[![wercker status](https://app.wercker.com/status/7b626224a54dd9e5af976d9e960e1153/m "wercker status")](https://app.wercker.com/project/bykey/7b626224a54dd9e5af976d9e960e1153)
+
 Overview
 ------
 

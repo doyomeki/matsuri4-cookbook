@@ -15,3 +15,11 @@ template "/etc/td-agent/td-agent.conf" do
   mode   '0644'
   notifies :restart, "service[td-agent]"
 end
+
+template "/etc/init.d/td-agent" do
+  source 'td-agent.erb'
+  owner  'root'
+  group  'root'
+  mode   '0755'
+  notifies :restart, "service[td-agent]", :immediately
+end

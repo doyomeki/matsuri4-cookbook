@@ -52,3 +52,7 @@ build:
     - script:
         name: Run vagrant destroy
         code: vagrant destroy --force
+    - wantedly/pretty-slack-notify:
+        team: koudaiii
+        token: $SLACK_API_TOKEN
+        channel: general
