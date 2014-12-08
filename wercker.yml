@@ -53,6 +53,6 @@ build:
         name: Run vagrant destroy
         code: vagrant destroy --force
     - wantedly/pretty-slack-notify:
+        webhook_url: $SLACK_WEBHOOK_URL
         team: koudaiii
-        token: $SLACK_API_TOKEN
         channel: general
