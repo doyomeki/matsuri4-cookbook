@@ -6,8 +6,20 @@ Cookbook for matsuri4
 Overview
 ------
 
+* create promotion site of matsuri4
+* http://matsuri4.doyomeki.com
+
 Description
 ------
+
+* This cookbook are included mackerel-agent and fluentd and nginx
+
+Requirement
+-----
+
+* ubuntu 14.04 LTS vagrant(ubuntu/trusy)
+* Ruby 2.1.5
+* bundler
 
 Install
 ------
@@ -17,10 +29,7 @@ Install
   $ git clone https://github.com/doyomeki/matsuri4-cookbook
   $ bundle install
   $ bundle exec berks vendor cookbooks
-  $ vagrant plugin install dotenv
   $ vagrant plugin install sahara
-  $ vagrant plugin install vagrant-omnibus
-  $ vagrant plugin install vagrant-berkshelf
   $ vagrant ssh-config --host webapp >> ~/.ssh/config
 ```
 
@@ -31,7 +40,6 @@ Usage
  $ vagrant up
  # Start provisioning, after install Chef
  $ knife solo bootstrap webapp|| [IP ||  hostname]
-
 ```
 
 Tips
