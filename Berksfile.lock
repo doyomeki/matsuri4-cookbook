@@ -9,6 +9,8 @@ DEPENDENCIES
     path: site-cookbooks/my_ntp
   my_td-agent
     path: site-cookbooks/my_td-agent
+  my_timezone
+    path: site-cookbooks/my_timezone
   nginx
   td-agent (~> 1.0.0)
   timezone-ii
@@ -30,6 +32,8 @@ GRAPH
     apt (>= 0.0.0)
     td-agent (>= 0.0.0)
     yum (>= 0.0.0)
+  my_timezone (0.1.0)
+    timezone-ii (>= 0.0.0)
   nginx (2.7.4)
     apt (~> 2.2)
     bluepill (~> 2.3)
