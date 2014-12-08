@@ -3,31 +3,49 @@
   type tail
   format ltsv
   time_format %d/%b/%Y:%H:%M:%S %z
-  path /var/log/nginx/app.access.log 
+  path /var/log/nginx/app.access.log
   pos_file /var/log/td-agent/app_access_log.pos
   tag access.nginx
 </source>
 
 # fluent-plugin-datacounterでステータスコード別に集計する
 <match access.nginx>
-  type datacounter
-  count_interval 1m
-  count_key status
-  aggregate all
-  tag nginx.status
-  pattern1 2xx ^2\d\d$
-  pattern2 3xx ^3\d\d$
-  pattern3 4xx ^4\d\d$
-  pattern4 5xx ^5\d\d$
+  type copy
+  <store>
+    type datacounter
+    count_interval 1m
+    count_key status
+    aggregate all
+    tag nginx.status
+    pattern1 2xx ^2\d\d$
+    pattern2 3xx ^3\d\d$
+  </store>
+  <store>
+    type datacounter
+    count_interval 1m
+    count_key referer
+    aggregate all
+    tag nginx.referer
+    pattern1 facebook .*facebook.*
+    pattern2 twitter ^http://t\.co.*
+    pattern3 hoku ^http://hoku\.in.*
+  </store>
 </match>
 
 # fluent-plugin-mackerelによりサービスメトリックを投稿する
 <match nginx.status.**>
   type mackerel
-  api_key <投稿先オーガニゼーションのAPIキー>
-  service <投稿先サービス名>
+  api_key "" # your mackerel api key
+  service "" # your mackerel service name
   metrics_name access_num.${out_key}
   out_keys 2xx_count,3xx_count,4xx_count,5xx_count
+</match>
+<match nginx.referer.**>
+  type mackerel
+  api_key "" # your mackerel api key
+  service "" # your mackerel service name
+  metrics_name access_referer.${out_key}
+  out_keys facebook_count,twitter_count,hoku_count
 </match>
 ####
 ## Output descriptions:

@@ -1,11 +1,11 @@
-my_fluentd CHANGELOG
-====================
+my_td-agent CHANGELOG
+=====================
 
-This file is used to list changes made in each version of the my_fluentd cookbook.
+This file is used to list changes made in each version of the my_td-agent cookbook.
 
 0.1.0
 -----
-- [your_name] - Initial release of my_fluentd
+- [your_name] - Initial release of my_td-agent
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
