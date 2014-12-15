@@ -1,0 +1,5 @@
+apikey = <%= node['mackerel-agent']['conf']['apikey'] %>
+roles = <%= node['mackerel-agent']['conf']['roles'] %>
+
+[plugin.metrics.nginx]
+command = "/usr/local/bin/mackerel-plugin-nginx -host localhost -port 80"

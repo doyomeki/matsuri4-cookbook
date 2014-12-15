@@ -6,7 +6,5 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.default['mackerel-agent']['conf']['apikey'] = 'Your API KEY' # required
-node.default['mackerel-agent']['conf']['roles'] = ["My-Service:app"] # optional
-
 include_recipe "mackerel-agent"
+include_recipe 'my_mackerel-agent::my_mackerel-agent-plugins'
