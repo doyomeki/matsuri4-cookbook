@@ -26,5 +26,14 @@ template 'nginx.conf' do
   notifies :reload, 'service[nginx]'
 end
 
+template 'default.conf' do
+  path   "#{node['nginx']['dir']}/conf.d/default.conf"
+  source 'default.conf.erb'
+  owner  'root'
+  group  'root'
+  mode   '0644'
+  notifies :reload, 'service[nginx]'
+end
+
 include_recipe 'nginx::commons_dir'
 include_recipe 'my_nginx::sites'
