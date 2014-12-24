@@ -9,6 +9,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "private_network", ip: "192.168.33.10"
+  config.ssh.username = "vagrant"
+  config.ssh.private_key_path = "~/.ssh/id_rsa"
+  config.vm.boot_timeout = 120
   config.vm.provider :digital_ocean do |provider, override|
     override.ssh.username = "vagrant"
     override.ssh.private_key_path = "~/.ssh/id_rsa"

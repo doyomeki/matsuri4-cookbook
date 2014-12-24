@@ -6,5 +6,5 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "mackerel-agent"
-include_recipe 'my_mackerel-agent::my_mackerel-agent-plugins'
+include_recipe 'mackerel-agent'
+include_recipe 'mackerel-agent::plugins'
